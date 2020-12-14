@@ -17,3 +17,8 @@ def testAngular(String testRepoName) {
     // cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
     sh "docker rmi ${testRepoName}:test"
 }
+
+def buildSpring() {
+    echo "Build Docker Image..."
+    sh "docker build --rm --build-arg BUILD_TAG=${env.BUILD_TAG} -t ${env.REPO}:latest ."
+}
