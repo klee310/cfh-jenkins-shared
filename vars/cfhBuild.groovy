@@ -11,5 +11,12 @@ def buildAngular(String tempName, String repo) {
 }
 
 def testAngular() {
-
+    // echo "execute tests using docker container..."
+    // // sh 'docker run -t ${env.REPO_NAME}:test npm run testCI'
+    // sh 'mkdir -p coverage && \
+    //     docker run -t --mount type=bind,source=$PWD/coverage,target=/usr/src/app/coverage \
+    //     ${env.REPO_NAME}:test npm run testCI'
+    // cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
+    echo "KL-10/15: tests disabled until Matthew/TP fixes their test-cases"
+    sh "docker rmi ${env.REPO_NAME}:test"
 }
