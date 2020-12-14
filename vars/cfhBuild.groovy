@@ -1,6 +1,5 @@
-def call(map config) {
-
-}
+// def call(map config) {
+// }
 
 def buildAngular(String testRepoName, String repo) {
     echo "REPO_NAME ~~ ${testRepoName}"
