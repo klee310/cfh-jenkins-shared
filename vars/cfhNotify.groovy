@@ -2,7 +2,7 @@ def call() {
     // notifyLINE("IYinezD7zpHt3DbtIKw67n1XCCgskFcVilzGE3nddhW", currentBuild.currentResult == 'SUCCESS')
 
     withCredentials([string(credentialsId: 'acd8aa7c-57a3-47a1-997b-62ba4a7e1571', variable: 'LINE_TOKEN')]) {
-        notifyLINE(token = "${LINE_TOKEN}", isSuccess = currentBuild.currentResult == 'SUCCESS')
+        notifyLINE("${LINE_TOKEN}", currentBuild.currentResult == 'SUCCESS')
     }
 }
 
