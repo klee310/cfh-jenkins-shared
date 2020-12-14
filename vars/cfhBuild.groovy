@@ -2,6 +2,7 @@
 // }
 
 def buildAngular(String testRepoName, String repo) {
+    echo "Build Docker Image..."
     sh "docker build --rm --target BUILD -t ${testRepoName}:test . && \
         docker build --rm -t ${repo}:latest ."
     // $ docker build --rm --target BUILD -t channel/mobileweb:test . && docker build --rm -t channel/mobileweb .
