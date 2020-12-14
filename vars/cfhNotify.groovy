@@ -1,5 +1,12 @@
 def call(map config) {
     // notifyLINE("IYinezD7zpHt3DbtIKw67n1XCCgskFcVilzGE3nddhW", currentBuild.currentResult == 'SUCCESS')
+
+    withCredentials([string(credentialsId: 'acd8aa7c-57a3-47a1-997b-62ba4a7e1571', variable: 'LINE_TOKEN')]) {
+        notifyLINE("${LINE_TOKEN}", currentBuild.currentResult == 'SUCCESS')
+    }
+}
+
+def notifyLINE(token, isSuccess) {
     // curl https://notify-api.line.me/api/notify -H 'Authorization: Bearer IYinezD7zpHt3DbtIKw67n1XCCgskFcVilzGE3nddhW' -F 'message=test 🎄 👻' -F 'stickerPackageId=2' -F 'stickerId=28'"
 
     def url = 'https://notify-api.line.me/api/notify'
