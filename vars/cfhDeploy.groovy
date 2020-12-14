@@ -1,4 +1,5 @@
 def call() {
+    echo "Deploying to AWS..."
     withCredentials([usernamePassword(credentialsId: '1d7ee753-e50a-45ba-9d20-c5544ae18319', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
         sh "git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/klee310/cfh-vnins-devops.git && \
             cd cfh-vnins-devops; docker build --rm -t awskube:latest -f Dockerfile.awskube ."
