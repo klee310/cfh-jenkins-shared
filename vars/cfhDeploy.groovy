@@ -5,6 +5,6 @@ def call() {
             cd cfh-vnins-devops; docker build --rm -t awskube:latest -f Dockerfile.awskube ."
     }
     withCredentials([usernamePassword(credentialsId: 'cce3c97d-537b-4fa9-b2c4-d616d10ff5cc', passwordVariable: 'AWS_SECRET', usernameVariable: 'AWS_KEY')]) {
-        sh "docker run -e AWS_ACCESS_KEY_ID=${AWS_KEY} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET} -e AWS_DEFAULT_REGION=ap-southeast-1 -e SERVICE_TO_RESTART=${env.POD_NAME} -e EKS_NAMESPACE=${env.EKS_NAMESPACE} awskube:latest"
+        sh "docker run -e AWS_ACCESS_KEY_ID=${AWS_KEY} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET} -e AWS_DEFAULT_REGION=ap-southeast-1 -e SERVICE_TO_RESTART=${env.POD_NAME} -e EKS_NAMESPACE=${env.EKS_NAMESPACE} -e EKS_CLUSTER=${env.EKS_CLUSTER} awskube:latest"
     }
 }
