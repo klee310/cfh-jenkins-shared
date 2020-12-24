@@ -11,7 +11,7 @@ def notifyLINE(token, isSuccess) {
 
     def url = 'https://notify-api.line.me/api/notify'
     // def message = "Build ```${env.REPO_NAME}:${env.BUILD_TAG}``` *${currentBuild.currentResult}*\n${env.BUILD_URL}"
-    message = "🎄🎄🎄 *${currentBuild.currentResult}* 🎄🎄🎄\n```${env.REPO_NAME}:${env.BUILD_TAG}```\n${env.BUILD_URL}"
+    message = "🎄🎄🎄 *${currentBuild.currentResult}* 🎄🎄🎄\n```${env.REPO_NAME}:${env.BUILD_TAG}```${env.BUILD_URL}"
     // def stickerPackageId = '2'
     // def stickerId = isSuccess ? '28' : '23'
 
