@@ -8,7 +8,7 @@ def notifyLINE(token, isSuccess) {
     // backup...🎉 🎄 👻 🐂 🐀
 
     def url = 'https://notify-api.line.me/api/notify'
-    def msg_prefix = isSuccess ? "🐂*${currentBuild.currentResult}*🐂" : "🐀*${currentBuild.currentResult}*🐀"
+    def msg_prefix = isSuccess ? "🐂 *${currentBuild.currentResult}* 🐂" : "🐀 *${currentBuild.currentResult}* 🐀"
     // def message = "Build ```${env.REPO_NAME}:${env.BUILD_TAG}``` *${currentBuild.currentResult}*\n${env.BUILD_URL}"
     def message = msg_prefix + "\n```${env.REPO_NAME}:${env.BUILD_TAG}```\n${env.BUILD_URL}"
     // def stickerPackageId = '2'
