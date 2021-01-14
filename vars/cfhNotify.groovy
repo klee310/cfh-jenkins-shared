@@ -17,11 +17,3 @@ def notifyLINE(token, isSuccess) {
     // sh "curl ${url} -H 'Authorization: Bearer ${token}' -F 'message=${message}' -F 'stickerPackageId=${stickerPackageId}' -F 'stickerId=${stickerId}'"
     sh "curl ${url} -H 'Authorization: Bearer ${token}' -F 'message=${message}'"
 }
-
-def notifyLine2(config) {
-    withCredentials([string(credentialsId: 'acd8aa7c-57a3-47a1-997b-62ba4a7e1571', variable: 'LINE_TOKEN')]) {
-        if (config.message) {
-            sh "curl https://notify-api.line.me/api/notify -H 'Authorization: Bearer ${LINE_TOKEN}' -F 'message=${config.message}'"
-        }
-    }
-}
